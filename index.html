@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório trabalho prático Sensor Infravermelho Reflexivo</title>
+</head>
+<body>
+    <h1>Relatório do Projeto - Acender um led com um sensor Infravermelho Reflexivo.</h1>
+
+    <nav>
+        <h2>SUMÁRIO</h2>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+            <li><a href="#materiais">Materiais Utilizados</a></li>
+            <li><a href="#diagrama">Diagrama do Circuito</a></li>
+            <li><a href="#codigo">Código Fonte</a></li>
+            <li><a href="#procedimentos">Procedimentos</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#discussao">Discussão</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Referências</a></li>
+        </ul>
+    </nav>
+
+    <section id="introducao">
+    <h2>1. Introdução</h2>
+    <p>Este Relatório descreve o projeto de controle de um Led com a utilização de um sensor infravermelho e um Arduino, com o objetivo de desenvolver habilidades em eletrônica e programação.</p>
+    </section>
+
+    <section id="objetivos">
+    <h2>2. Objetivos</h2>
+    <p>O principal objetivo é fazer o controle do led RGB com a utilização de um sensor infravermelho em um microcontrolador Arduino.</p>
+    </section>
+
+    <section id="materiais">
+        <h2>3. Materiais utilizados</h2>
+        <ul type="square">
+            <li>Arduino</li>
+            <li>LED normal ou LED RGB</li>
+            <li>1 Sensor infravermelho reflexivo</li>
+            <li>1 Resistor</li>
+            <li>Protoboard</li>
+            <li>Fios de conexão</li>
+        </ul>
+   
+    <section id="codigo">
+        <h2>4. Código Fonte</h2>
+        <pre>
+            const int PinLed = 9;
+const int PinSensor = 8;
+int LeituraSensor;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(PinSensor, INPUT);
+  pinMode(PinLed, OUTPUT);
+}
+
+void loop() {
+  LeituraSensor = digitalRead(PinSensor);
+  Serial.print("Leitura do sensor: ");
+  Serial.println(LeituraSensor);
+  
+  if (LeituraSensor == LOW) {
+    digitalWrite(PinLed, HIGH);
+  }
+  else {
+    digitalWrite(PinLed, LOW);
+  }
+
+  delay(100);
+}
+        </pre>
+    </section>
+
+    <section id="procedimentos">
+        <h2>5. Procedimentos</h2>
+        <p>O sensor infravermelho e o LED foram conectados aos pinos digitais do Arduino conforme o diagrama, e o código foi carregado na placa.</p>
+    </section>
+
+    <section id="resultados">
+        <h2>6. Resultados</h2>
+        <p>O LED se acendia e apagava conforme um objeto não reflexivo/reflexivo passava em frente ao sensor.</p>
+    </section>
+
+    <section id="discussao">
+        <h2>7. Discussão</h2>
+        <p>O funcionamento do circuito aconteceu de forma satisfatória e conforme o esperado.</p>
+    </section>
+
+    <section id="conclusao">
+        <h2>8. Conclusão</h2>
+        <p>Após muitas tentativas e erros o projeto foi bem sucedido, permitindo a pratica dos conceitos de eletrônica e programação.</p>
+    </section>
+
+    <section id="referencias">
+        <h2>9. Referências</h2>
+        <p>Documentação do Arduino e materiais utilizados no projeto.</p>
+    </section>
+
+        <h2>Perguntas</h2>
+        <ol>
+            <li>Qual o valor da corrente elétrica de um LED normal e um LED RGB? Um LED normal geralmente opera com uma corrente de cerca de <strong>20 mA</strong>, enquanto um LED RGB pode consumir até <strong>60 mA</strong> quando os três LEDs estão acesos simultaneamente.</li>
+            <li>Qual o valor da corrente elétrica de um sensor infravermelho reflexivo? Um sensor infravermelho reflexivo geralmente consome entre <strong>1 mA e 20 mA</strong>, dependendo do modelo específico. </li>
+        </ol>
+
+</body>
+</html>
+
+<footer>
+    <p>Relatório elaborado por [Leonardo, André, Luciano].</p>
+    <p>Disciplina: Desenvolvimento de sistemas de informação</p>
+    <p>Laboratório C38. 04/11/2024 </p>
+    </footer>
+   
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0Ipv1Hwy2MY?si=oouSVicN0M-C1zAA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
